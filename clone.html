@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStart - Innovate Your Future</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
+    body {background: #f9f9f9; color:#333;}
+
+    /* Navbar */
+    nav {
+      background: #0a74da;
+      padding: 15px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+      color: white;
+    }
+    .logo {font-size: 24px; font-weight: bold;}
+    .nav-links {display: flex; gap: 20px;}
+    .nav-links a {color:white; text-decoration:none; font-weight:500;}
+    .menu-toggle {display:none; font-size:28px; cursor:pointer;}
+
+    /* Hero */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') no-repeat center/cover;
+      height: 80vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align:center;
+      color: white; padding: 0 20px;
+    }
+    .hero h1 {font-size:48px; margin-bottom: 20px;}
+    .hero p {font-size:20px; margin-bottom: 30px;}
+    .hero button {
+      padding: 12px 25px; border:none; background:#ffcb05; color:#333;
+      font-size:18px; font-weight:bold; cursor:pointer; border-radius:6px;
+    }
+    .hero button:hover {background:#ffc107;}
+
+    /* Features */
+    .features {padding: 50px 20px; text-align: center;}
+    .features h2 {margin-bottom: 30px; font-size: 32px;}
+    .feature-grid {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px;
+    }
+    .feature-card {
+      background:white; padding:20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+    .feature-card h3 {margin-bottom:10px; color:#0a74da;}
+    .feature-card p {font-size:15px;}
+
+    /* Newsletter */
+    .newsletter {
+      background:#0a74da; color:white; padding:40px 20px; text-align:center;
+    }
+    .newsletter h2 {margin-bottom:20px;}
+    .newsletter input {
+      padding:10px; border:none; width:250px; border-radius:5px; outline:none;
+    }
+    .newsletter button {
+      padding:10px 20px; border:none; background:#ffcb05; font-weight:bold; cursor:pointer; border-radius:5px;
+    }
+    .newsletter button:hover {background:#ffc107;}
+
+    /* Footer */
+    footer {
+      background:#222; color:white; text-align:center; padding:15px; margin-top:20px;
+    }
+
+    /* Mobile */
+    @media (max-width:768px){
+      .nav-links {display:none; flex-direction:column; background:#0a74da; position:absolute; top:60px; right:0; width:200px; padding:15px;}
+      .nav-links.active {display:flex;}
+      .menu-toggle {display:block;}
+      .hero h1 {font-size:32px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">TechStart</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#features">Features</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Innovate Your Future</h1>
+    <p>Empowering businesses with cutting-edge technology solutions.</p>
+    <button onclick="alert('Thank you for your interest!')">Get Started</button>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features" id="features">
+    <h2>Why Choose TechStart?</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>AI-Powered</h3>
+        <p>Harness artificial intelligence to drive smarter decisions.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Cloud-Ready</h3>
+        <p>Seamless integration with cloud platforms for ultimate flexibility.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Secure</h3>
+        <p>Top-notch security to keep your data safe and protected.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="newsletter" id="newsletter">
+    <h2>Subscribe to our Newsletter</h2>
+    <input type="email" id="emailInput" placeholder="Enter your email">
+    <button onclick="subscribe()">Subscribe</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 TechStart. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    function subscribe(){
+      let email = document.getElementById('emailInput').value;
+      if(email.trim() === ""){
+        alert("Please enter a valid email!");
+      } else if(!email.includes("@")){
+        alert("Invalid email format!");
+      } else {
+        alert("Thank you for subscribing, " + email + "!");
+        document.getElementById('emailInput').value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>
